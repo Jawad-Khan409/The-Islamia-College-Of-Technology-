@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamia College of Technology & English Language Center</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0b2545;
+            --secondary-color: #134074;
+            --accent-color: #f4a261;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .top-bar div {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            height: 65px;
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(11, 37, 69, 0.85), rgba(19, 64, 116, 0.85)), 
+                        url('images/hero.jpg') center/cover no-repeat;
+            height: 60vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background: var(--accent-color);
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e76f51;
+        }
+
+        /* Section Container */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        /* Director Section */
+        .director-card {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .director-img {
+            flex: 1 1 300px;
+            position: relative;
+            min-height: 350px;
+        }
+
+        .director-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .director-info {
+            flex: 2 1 400px;
+            padding: 40px;
+        }
+
+        .director-info h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .director-info .subtitle {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .qualifications {
+            margin: 15px 0;
+            list-style: none;
+        }
+
+        .qualifications li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qualifications i {
+            color: var(--secondary-color);
+        }
+
+        /* Faculty Section */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .faculty-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .faculty-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .faculty-info {
+            padding: 20px;
+        }
+
+        .faculty-info h4 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .faculty-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Courses Section */
+        .courses-filter {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background: #e0e0e0;
+            border: none;
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .course-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .course-card h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .course-card ul {
+            list-style-type: circle;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Contact / Footer */
+        footer {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 40px 5% 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .footer-col p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div>
+            <span><i class="fa-solid fa-phone"></i> 0345-6896156 / 0946-791780</span>
+            <span><i class="fa-solid fa-location-dot"></i> Biha Road, College Chowk, Matta Swat</span>
+        </div>
+        <div>
+            <span>Reg No: TTB/ICT/SWT/30798</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav>
+        <div class="logo-container">
+            <img src="images/logo.jpg" alt="Islamia College Logo">
+            <div class="logo-text">
+                <h1>ISLAMIA COLLEGE</h1>
+                <span>OF TECHNOLOGY & ENGLISH LANGUAGE</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#director">Leadership</a></li>
+            <li><a href="#faculty">Faculty</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>Empowering Skills, Building Future</h2>
+        <p>Join the leading institution in Matta Swat for Information Technology, English Language Proficiency, and International Safety Certifications.</p>
+        <a href="#courses" class="btn">Explore Programs</a>
+    </section>
+
+    <!-- Director Section -->
+    <section id="director">
+        <div class="section-title">
+            <h2>Our Leadership</h2>
+        </div>
+        <div class="director-card">
+            <div class="director-img">
+                <img src="images/director.jpg" alt="Director Mr. Amin Ullah">
+            </div>
+            <div class="director-info">
+                <h3>Mr. Amin Ullah</h3>
+                <span class="subtitle">Director - Islamia College of Technology</span>
+                <p><em>"Leadership with vision, dedication with passion, committed to excellence in education."</em></p>
+                <br>
+                <ul class="qualifications">
+                    <li><i class="fa-solid fa-graduation-cap"></i> BSCS + MSCS (Computer Science)</li>
+                    <li><i class="fa-solid fa-certificate"></i> DIT, Safety Superior TTB</li>
+                    <li><i class="fa-solid fa-shield-halved"></i> IOSH, OSHA (UK) Certified</li>
+                    <li><i class="fa-solid fa-hotel"></i> Hotel Management Qualification</li>
+                    <li><i class="fa-solid fa-chalkboard-user"></i> Teaching & Administrating Since 2011</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty / Teachers Section -->
+    <section id="faculty">
+        <div class="section-title">
+            <h2>Our Expert Faculty</h2>
+        </div>
+        <div class="grid-container">
+            <!-- IT Teacher: Sir Mohsin -->
+            <div class="faculty-card">
+                <img src="images/sir-mohsin.jpg" alt="Sir Mohsin">
+                <div class="faculty-info">
+                    <h4>Sir Mohsin</h4>
+                    <p><strong>IT Teacher</strong></p>
+                    <p>Specialist in Web Development, Software Installation & DIT/CIT Modules.</p>
+                </div>
+            </div>
+
+            <!-- IT Teacher: Sir Asad -->
+            <div class="faculty-card">
+                <img src="images/sir-asad.jpg" alt="Sir Asad">
+                <div class="faculty-info">
+                    <h4>Sir Asad</h4>
+                    <p><strong>IT Teacher</strong></p>
+                    <p>Instructor for Database Management, Networking, and Computer Hardware.</p>
+                </div>
+            </div>
+
+            <!-- English Teacher: Syed Faraz -->
+            <div class="faculty-card">
+                <img src="images/syed-faraz.jpg" alt="Syed Faraz">
+                <div class="faculty-info">
+                    <h4>Syed Faraz</h4>
+                    <p><strong>English Language Teacher</strong></p>
+                    <p>Teaching since 2011. Expert in Spoken English, Grammar, & Public Speaking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Offered Section -->
+    <section id="courses">
+        <div class="section-title">
+            <h2>Offered Programs</h2>
+        </div>
+
+        <div class="courses-filter">
+            <button class="filter-btn active" onclick="filterCourses('all')">All Courses</button>
+            <button class="filter-btn" onclick="filterCourses('it')">Information Technology</button>
+            <button class="filter-btn" onclick="filterCourses('english')">English Language</button>
+            <button class="filter-btn" onclick="filterCourses('safety')">Safety & Technical</button>
+        </div>
+
+        <div class="grid-container" id="course-grid">
+            <div class="course-card course-item it">
+                <h4>DIT (Diploma in Information Technology)</h4>
+                <ul>
+                    <li>1-Year Comprehensive Diploma</li>
+                    <li>Software & Web Development</li>
+                    <li>Database Management & Cloud Computing</li>
+                    <li>C++ / Programming Concepts</li>
+                </ul>
+            </div>
+
+            <div class="course-card course-item it">
+                <h4>CIT (Certificate in Information Technology)</h4>
+                <ul>
+                    <li>MS Office Suite (Word, Excel, PowerPoint, Access)</li>
+                    <li>Typing (English & Urdu)</li>
+                    <li>Internet, E-mail & Cloud Storage (G-Drive)</li>
+                    <li>Cyber Security Basics & Printing</li>
+                </ul>
+            </div>
+
+            <div class="course-card course-item english">
+                <h4>3-Month English Language Course</h4>
+                <ul>
+                    <li>Audio-Visual & Multimedia Classes</li>
+                    <li>Speaking & Conversation Practice</li>
+                    <li>Grammar & Vocabulary Building</li>
+                    <li>Presentations & Public Speaking</li>
+                </ul>
+            </div>
+
+            <div class="course-card course-item english">
+                <h4>Oxford Language Cert / PTE / Duolingo</h4>
+                <ul>
+                    <li>International Test Preparation</li>
+                    <li>Spoken & Written Fluency</li>
+                    <li>Real-Life Communication Exercises</li>
+                </ul>
+            </div>
+
+            <div class="course-card course-item safety">
+                <h4>International Safety Certifications</h4>
+                <ul>
+                    <li>IOSH (UK) & OSHA (US) Safety Training</li>
+                    <li>Rigger Level 1, 2, and 3</li>
+                    <li>Health & Safety Management Protocols</li>
+                </ul>
+            </div>
+
+            <div class="course-card course-item it">
+                <h4>Graphics Designing & AI</h4>
+                <ul>
+                    <li>Adobe Photoshop & Illustrator</li>
+                    <li>CorelDRAW Vector Graphics</li>
+                    <li>Artificial Intelligence Applications</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Islamia College</h4>
+                <p>A Project of College Tuition Academy Matta.</p>
+                <p>Empowering skills and shaping futures with quality practical education.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-phone"></i> 0345-6896156</p>
+                <p><i class="fa-solid fa-phone-flip"></i> 0946-791780</p>
+                <p><i class="fa-solid fa-globe"></i> www.islamiacollegemattaswat.edu.pk</p>
+            </div>
+            <div class="footer-col">
+                <h4>Location & Hours</h4>
+                <p><i class="fa-solid fa-map-pin"></i> Biha Road, College Chowk, Matta Swat, KP</p>
+                <p><i class="fa-solid fa-clock"></i> Office Timing: 01:30 PM to 05:30 PM (Mon-Sat)</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Islamia College of Technology & English Language Center. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        function filterCourses(category) {
+            const items = document.querySelectorAll('.course-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    if (item.classList.contains(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

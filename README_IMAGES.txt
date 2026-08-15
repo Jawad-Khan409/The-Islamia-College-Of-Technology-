@@ -1,0 +1,1 @@
+Place your renamed image files (logo.jpg, hero.jpg, director.jpg, sir-mohsin.jpg, sir-asad.jpg, syed-faraz.jpg) in this folder.
